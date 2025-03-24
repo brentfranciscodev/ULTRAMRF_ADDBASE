@@ -1,26 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contacts.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/products.css" />
+    <link rel="shortcut icon" href="public/images/LOGO 2.png" />
     <title>PRODUCTS: ULTRA MRF</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <nav>
-        <img src="public/images/LOGO 2.png" alt="Logo"> 
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="contacts.html">CONTACT</a></li>
-            <li><a href="products.html">PRODUCTS</a></li>
-        </ul>
+      <a href="index.html">
+        <img src="public/images/LOGO 2.png" alt="Logo" />
+      </a>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="contacts.html">CONTACT</a></li>
+        <li><a href="products.html">PRODUCTS</a></li>
+      </ul>
     </nav>
 
-    <div class="container">
+    <div class="all-products">
+      <div class="title-and-search">
+        <h4>TIRES AND MAGS</h4>
+        <div class="subtitle">
+          <h2>Our best selling collections!</h2>
+        </div>
+      </div>
+
+      <div id="products">
+        <ul id="product-list"></ul>
+      </div>
     </div>
 
-    <footer>
-        ULTRA MRF ALL RIGHTS RESERVED
-    </footer>
-</body>
+    <footer>ULTRA MRF ALL RIGHTS RESERVED</footer>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBWZsKvQyPhae_X3DJxwwqtZcmvKwQys_U",
+        authDomain: "ultramrfdatabase2024.firebaseapp.com",
+        projectId: "ultramrfdatabase2024",
+        storageBucket: "ultramrfdatabase2024.appspot.com",
+        messagingSenderId: "176584988594",
+        appId: "1:176584988594:web:68ceb4db9026c9c2c5f6ab",
+        measurementId: "G-W50RSDJ3Q2",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      async function fetchData() {
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = "";
+
+        try {
+          const querySnapshot = await getDocs(collection(db, "products"));
+          querySnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            const li = document.createElement("li");
+
+            li.innerHTML = `
+              <span class="product-name">${data.product_name}</span><br/><br/>
+              <img src="public/images/${data.product_name.toLowerCase()}.jpg">
+              <div class="product">
+              <p>${data.product_name}" <p/>
+              <p>${data.category} <br />₱${data.price}</p> <p>${
+              data.branch
+            }</p> 
+            </div>
+            `;
+
+            productList.appendChild(li);
+          });
+        } catch (error) {
+          console.error("Error fetching data: ", error);
+          productList.innerHTML =
+            "<p>Error loading products. Please try again later.</p>";
+        }
+      }
+
+      fetchData();
+    </script>
+  </body>
 </html>

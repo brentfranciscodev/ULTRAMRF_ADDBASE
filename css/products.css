@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -27,7 +29,6 @@ nav img {
 }
 
 nav ul {
-  list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
@@ -45,15 +46,92 @@ nav ul li a {
   border-radius: 5px;
 }
 
-nav ul li a:hover {
-  background-color: #555;
+h4 {
+  margin-top: 250px;
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  text-align: left;
+  margin-left: 200px;
 }
 
-.container {
+#products p {
+  color: #fff;
+  padding-bottom: 0px;
+}
+
+.all-products {
+  padding-top: 20px; /* Adjust this value based on the nav height */
+}
+
+#products ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+  list-style-type: none;
+  text-transform: capitalize;
+}
+
+#products li {
   text-align: center;
-  max-width: 1200px;
-  margin: 20px auto;
-  flex-grow: 1;
+  margin: 20px;
+  background-color: #d9d9d9;
+  border: 5px solid #555;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+}
+
+.product {
+  background-color: #9d9d9d;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.product-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  padding-bottom: 0px;
+  font-weight: bold;
+  display: inline-block;
+  width: 200px;
+  word-wrap: break-word;
+}
+
+#products img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 10px 0;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #424242;
+  margin-left: 200px;
+  margin-bottom: -40px;
+  font-weight: bold;
+}
+
+#searchbar {
+  background-image: url("public/images/searchbar.jpg");
+  background-position: 10px 12px;
+  max-width: 400px;
+  font-size: 16px;
+  border: 1px solid #000000;
+  padding: 10px 20px 10px 40px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 footer {
@@ -61,4 +139,58 @@ footer {
   color: #ffffff;
   padding: 20px 0;
   text-align: center;
+  margin-top: 40px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  h4,
+  .subtitle {
+    margin-left: 20px; /* Adjust left margin */
+  }
+
+  .all-products {
+    padding-top: 80px; /* Adjust padding for mobile as well */
+  }
+
+  #products ul {
+    padding: 15px; /* Adjust padding */
+  }
+
+  #products li {
+    width: 100%; /* Full width on small screens */
+    margin: 10px 0; /* Reduce margin */
+  }
+
+  .product-name {
+    font-size: 20px; /* Adjust font size */
+    width: auto; /* Allow automatic width */
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  nav ul li {
+    margin: 5px 0; /* Reduce vertical margin */
+  }
+
+  h4 {
+    font-size: 24px; /* Smaller title */
+    margin-top: 200px; /* Adjust margin */
+  }
+
+  .subtitle {
+    font-size: 14px; /* Smaller subtitle */
+    margin-left: 20px; /* Adjust left margin */
+    margin-bottom: 20px;
+  }
 }
