@@ -1,18 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+/* ===== ULTRA MRF - Products Page Styles ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #000;
+  font-family: "Montserrat", Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #1a1a1a;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* ===== NAVIGATION ===== */
 nav {
-  background-color: #000000;
-  padding: 15px 20px;
+  background-color: #1a1a1a;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,177 +26,298 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 222;
+  z-index: 1000;
+  height: 70px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
-nav img {
-  width: 130px;
-  height: auto;
+.nav-logo img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s;
+}
+
+.nav-logo img:hover {
+  transform: scale(1.05);
 }
 
 nav ul {
-  padding: 0;
-  margin: 0;
+  list-style: none;
   display: flex;
-}
-
-nav ul li {
-  margin: 0 15px;
+  gap: 5px;
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: #cccccc;
   text-decoration: none;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
-h4 {
-  margin-top: 250px;
-  color: #000000;
-  font-family: "Montserrat", sans-serif;
-  font-size: 30px;
-  text-align: left;
-  margin-left: 200px;
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ffffff;
+  background-color: #E31837;
 }
 
-#products p {
-  color: #fff;
-  padding-bottom: 0px;
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+  margin-top: 70px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+  padding: 60px 20px 50px;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  color: #E31837;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ===== PRODUCT GRID ===== */
 .all-products {
-  padding-top: 20px; /* Adjust this value based on the nav height */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex-grow: 1;
 }
 
 #products ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 30px;
-  list-style-type: none;
-  text-transform: capitalize;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  list-style: none;
+  padding: 0;
 }
 
 #products li {
-  text-align: center;
-  margin: 20px;
-  background-color: #d9d9d9;
-  border: 5px solid #555;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-.product {
-  background-color: #9d9d9d;
-  border: 2px solid #000000;
-  border-radius: 10px;
-  font-weight: bold;
+#products li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+#products li br {
+  display: none;
 }
 
 .product-name {
-  font-family: "Montserrat", sans-serif;
-  font-size: 24px;
-  text-transform: uppercase;
-  color: #000000;
-  margin: 0;
-  padding-bottom: 0px;
-  font-weight: bold;
-  display: inline-block;
-  width: 200px;
-  word-wrap: break-word;
+  display: none;
 }
 
 #products img {
-  max-width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin: 10px 0;
-  transition: transform 0.3s;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border: none;
+  border-radius: 12px 12px 0 0;
+  margin: 0;
+  transition: transform 0.4s ease;
   cursor: pointer;
+  display: block;
 }
 
-.subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-  text-transform: capitalize;
-  color: #424242;
-  margin-left: 200px;
-  margin-bottom: -40px;
-  font-weight: bold;
+#products li:hover img {
+  transform: scale(1.05);
 }
 
-#searchbar {
-  background-image: url("public/images/searchbar.jpg");
-  background-position: 10px 12px;
-  max-width: 400px;
-  font-size: 16px;
-  border: 1px solid #000000;
-  padding: 10px 20px 10px 40px;
-  border-radius: 25px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+.product {
+  background-color: #1a1a1a;
+  border: none;
+  border-radius: 0;
+  padding: 16px 18px;
+  font-weight: 600;
+  margin: 0;
+  margin-top: auto;
 }
 
-footer {
-  background-color: #000000;
+#products .product p:first-child {
   color: #ffffff;
-  padding: 20px 0;
-  text-align: center;
-  margin-top: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
 }
 
-/* Media Queries for Responsiveness */
+#products p {
+  color: #aaaaaa;
+  font-size: 13px;
+  padding: 2px 0;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #1a1a1a;
+  color: #999;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: 15px;
+  opacity: 0.7;
+}
+
+footer > .footer-content > p {
+  color: #999;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-links a {
+  color: #999;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #E31837;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
   nav ul {
-    flex-direction: column; /* Stack menu items vertically */
-    align-items: flex-start; /* Align items to the left */
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
-  h4,
-  .subtitle {
-    margin-left: 20px; /* Adjust left margin */
+  nav ul.open {
+    display: flex;
   }
 
-  .all-products {
-    padding-top: 80px; /* Adjust padding for mobile as well */
+  nav ul li a {
+    display: block;
+    padding: 15px 30px;
+    border-radius: 0;
+  }
+
+  .page-header {
+    padding: 40px 20px 35px;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+  }
+
+  .page-header p {
+    font-size: 14px;
   }
 
   #products ul {
-    padding: 15px; /* Adjust padding */
-  }
-
-  #products li {
-    width: 100%; /* Full width on small screens */
-    margin: 10px 0; /* Reduce margin */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .product-name {
-    font-size: 20px; /* Adjust font size */
-    width: auto; /* Allow automatic width */
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  nav {
-    flex-direction: column; /* Stack nav items vertically */
-    align-items: flex-start; /* Align items to the left */
+  .page-header h1 {
+    font-size: 24px;
+    letter-spacing: 2px;
   }
 
-  nav ul li {
-    margin: 5px 0; /* Reduce vertical margin */
+  .all-products {
+    padding: 20px 15px;
   }
 
-  h4 {
-    font-size: 24px; /* Smaller title */
-    margin-top: 200px; /* Adjust margin */
-  }
-
-  .subtitle {
-    font-size: 14px; /* Smaller subtitle */
-    margin-left: 20px; /* Adjust left margin */
-    margin-bottom: 20px;
+  #products ul {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 }

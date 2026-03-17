@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/contacts.css" />
     <link rel="shortcut icon" href="public/images/LOGO 2.png" />
     <title>CONTACTS: ULTRA MRF</title>
@@ -10,92 +13,187 @@
 
   <body>
     <nav>
-      <a href="index.html">
+      <a href="index.html" class="nav-logo">
         <img src="public/images/LOGO 2.png" alt="Logo" />
       </a>
-      <ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="navMenu">
         <li><a href="index.html">HOME</a></li>
-        <li><a href="contacts.html">CONTACT</a></li>
         <li><a href="products.html">PRODUCTS</a></li>
+        <li><a href="contacts.html" class="active">CONTACT</a></li>
       </ul>
     </nav>
 
-    <div class="container">
-      <section class="DAU">
-        <h2>BRANCH: DAU</h2>
-      </section>
-      <div class="branch1">
-        <img src="public/images/UMD.jpg" alt="Branch 1" class="branchimg" />
-        <p>
-          This is the main branch of ULTRA MRF and is located in Dau. It offers
-          a wide range of tires, mags, and automotive services. With a solid
-          foundation for providing products, it is the core of the business
-          operations since it has a wide inventory and experienced staff.<br /><br /><br />DAU
-          MacArthur Hwy, Angeles City, Philippines<br />
-          0970 666 7078<br />ultramrfmarketing@gmail.com
-        </p>
-      </div>
-      <section class="Annex">
-        <h2>BRANCH: DAU ANNEX</h2>
-      </section>
-      <div class="branch2">
-        <img src="public/images/UMD.jpg" alt="Branch 2" class="branchimg" />
-        <p>
-          This is situated close to the ULTRA MRF main branch. Its location
-          provides customers with additional space for other services. It serves
-          as a supplementary service to handle the growing business of ULTRA
-          MRF.<br /><br /><br />DAU MacArthur Hwy, Angeles City, Philippines<br />
-          0970 666 7078<br />ultramrfmarketing@gmail.com
-        </p>
-      </div>
-
-      <section class="Telabastagan">
-        <h2>BRANCH: Telabastagan</h2>
-      </section>
-      <div class="branch3">
-        <img src="public/images/UMT.jpg" alt="Branch 3" class="branchimg" />
-        <p>
-          This branch is for customers who live near Telabastagan since it
-          provides easy access to ULTRA MRF's widest tire and wheel selection in
-          Pampanga. It provides the needs of nearby residents surrounding
-          areas.<br /><br /><br />Redz commercial bldg. mc arthur hway
-          Telebastagan, San Fernando, Philippines<br />
-          0981 383 0899<br />ultramrfmarketing@gmail.com
-        </p>
-      </div>
-
-      <section class="Dolores">
-        <h2>BRANCH: San Fernando, Dolores</h2>
-      </section>
-      <div class="branch4">
-        <img src="public/images/UMS.jpg" alt="Branch 4" class="branchimg" />
-        <p>
-          This branch is for customers who live near the City of San Fernando,
-          providing the customer with convenient access to the selection of
-          tires, mags, and services. It also offers the same quality of products
-          as the main branch.<br /><br /><br />CITY OF SAN FERNANDO Mcarthur
-          Highway Dolores City Of San Fernando, San Fernando, Philippines<br />0966
-          361 6678<br />ultramrfmarketing@gmail.com
-        </p>
-      </div>
-
-      <section class="Sm_Pampanga">
-        <h2>BRANCH: SM Pampanga</h2>
-      </section>
-      <div class="branch5">
-        <img src="public/images/UMS.jpg" alt="Branch 5" class="branchimg" />
-        <p>
-          This branch is located at the Multi-Level Parking beside Sky Ranch. it
-          offers customers the convenience of shopping while doing other
-          errands. This location is good for people who want to upgrade their
-          tires and mags while in the shopping center.<br /><br /><br />2nd
-          Level, Multi-Level Parking, beside Sky Ranch, SM City Pampanga, San
-          Fernando, Philippines<br />
-          0970 666 7078<br />ultramrfmarketing@gmail.com
-        </p>
-      </div>
+    <div class="page-header">
+      <h1>Our Branches</h1>
+      <p>Visit us at any of our 5 locations across Pampanga</p>
     </div>
 
-    <footer>ULTRA MRF ALL RIGHTS RESERVED</footer>
+    <main class="container">
+      <div class="branch-card">
+        <div class="branch-badge">Main Branch</div>
+        <div class="branch-inner">
+          <img src="public/images/UMD.jpg" alt="DAU Branch" class="branchimg" />
+          <div class="branch-info">
+            <h2>DAU</h2>
+            <p class="branch-desc">
+              This is the main branch of ULTRA MRF and is located in Dau. It offers
+              a wide range of tires, mags, and automotive services. With a solid
+              foundation for providing products, it is the core of the business
+              operations since it has a wide inventory and experienced staff.
+            </p>
+            <div class="branch-details">
+              <div class="detail-item">
+                <span class="detail-icon">&#128205;</span>
+                <span>MacArthur Hwy, Angeles City, Philippines</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#128222;</span>
+                <span>0970 666 7078</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#9993;</span>
+                <span>ultramrfmarketing@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-card">
+        <div class="branch-inner">
+          <img src="public/images/UMD.jpg" alt="DAU Annex Branch" class="branchimg" />
+          <div class="branch-info">
+            <h2>DAU ANNEX</h2>
+            <p class="branch-desc">
+              This is situated close to the ULTRA MRF main branch. Its location
+              provides customers with additional space for other services. It serves
+              as a supplementary service to handle the growing business of ULTRA MRF.
+            </p>
+            <div class="branch-details">
+              <div class="detail-item">
+                <span class="detail-icon">&#128205;</span>
+                <span>MacArthur Hwy, Angeles City, Philippines</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#128222;</span>
+                <span>0970 666 7078</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#9993;</span>
+                <span>ultramrfmarketing@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-card">
+        <div class="branch-inner">
+          <img src="public/images/UMT.jpg" alt="Telabastagan Branch" class="branchimg" />
+          <div class="branch-info">
+            <h2>TELABASTAGAN</h2>
+            <p class="branch-desc">
+              This branch is for customers who live near Telabastagan since it
+              provides easy access to ULTRA MRF's widest tire and wheel selection in
+              Pampanga. It provides the needs of nearby residents surrounding areas.
+            </p>
+            <div class="branch-details">
+              <div class="detail-item">
+                <span class="detail-icon">&#128205;</span>
+                <span>Redz Commercial Bldg., MacArthur Hwy, Telabastagan, San Fernando, Philippines</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#128222;</span>
+                <span>0981 383 0899</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#9993;</span>
+                <span>ultramrfmarketing@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-card">
+        <div class="branch-inner">
+          <img src="public/images/UMS.jpg" alt="Dolores Branch" class="branchimg" />
+          <div class="branch-info">
+            <h2>SAN FERNANDO, DOLORES</h2>
+            <p class="branch-desc">
+              This branch is for customers who live near the City of San Fernando,
+              providing the customer with convenient access to the selection of
+              tires, mags, and services. It also offers the same quality of products
+              as the main branch.
+            </p>
+            <div class="branch-details">
+              <div class="detail-item">
+                <span class="detail-icon">&#128205;</span>
+                <span>MacArthur Highway, Dolores, City of San Fernando, Philippines</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#128222;</span>
+                <span>0966 361 6678</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#9993;</span>
+                <span>ultramrfmarketing@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-card">
+        <div class="branch-inner">
+          <img src="public/images/UMS.jpg" alt="SM Pampanga Branch" class="branchimg" />
+          <div class="branch-info">
+            <h2>SM PAMPANGA</h2>
+            <p class="branch-desc">
+              This branch is located at the Multi-Level Parking beside Sky Ranch. It
+              offers customers the convenience of shopping while doing other
+              errands. This location is good for people who want to upgrade their
+              tires and mags while in the shopping center.
+            </p>
+            <div class="branch-details">
+              <div class="detail-item">
+                <span class="detail-icon">&#128205;</span>
+                <span>2nd Level, Multi-Level Parking, beside Sky Ranch, SM City Pampanga, San Fernando, Philippines</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#128222;</span>
+                <span>0970 666 7078</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">&#9993;</span>
+                <span>ultramrfmarketing@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <img src="public/images/LOGO 2.png" alt="ULTRA MRF" class="footer-logo" />
+        <p>&copy; 2024 ULTRA MRF. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="contacts.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('hamburgerBtn').addEventListener('click', function() {
+        document.getElementById('navMenu').classList.toggle('open');
+        this.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>

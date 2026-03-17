@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/products.css" />
     <link rel="shortcut icon" href="public/images/LOGO 2.png" />
     <title>PRODUCTS: ULTRA MRF</title>
@@ -10,30 +13,48 @@
 
   <body>
     <nav>
-      <a href="index.html">
+      <a href="index.html" class="nav-logo">
         <img src="public/images/LOGO 2.png" alt="Logo" />
       </a>
-      <ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="navMenu">
         <li><a href="index.html">HOME</a></li>
+        <li><a href="products.html" class="active">PRODUCTS</a></li>
         <li><a href="contacts.html">CONTACT</a></li>
-        <li><a href="products.html">PRODUCTS</a></li>
       </ul>
     </nav>
 
-    <div class="all-products">
-      <div class="title-and-search">
-        <h4>TIRES AND MAGS</h4>
-        <div class="subtitle">
-          <h2>Our best selling collections!</h2>
-        </div>
-      </div>
+    <div class="page-header">
+      <h1>TIRES AND MAGS</h1>
+      <p>Our best selling collections!</p>
+    </div>
 
+    <main class="all-products">
       <div id="products">
         <ul id="product-list"></ul>
       </div>
-    </div>
+    </main>
 
-    <footer>ULTRA MRF ALL RIGHTS RESERVED</footer>
+    <footer>
+      <div class="footer-content">
+        <img src="public/images/LOGO 2.png" alt="ULTRA MRF" class="footer-logo" />
+        <p>&copy; 2024 ULTRA MRF. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="contacts.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('hamburgerBtn').addEventListener('click', function() {
+        document.getElementById('navMenu').classList.toggle('open');
+        this.classList.toggle('active');
+      });
+    </script>
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
