@@ -33,26 +33,77 @@
 
     <main class="all-products">
       <div id="products">
+        <ul id="skeleton-list" class="skeleton-grid">
+          <li class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line short"></div></div></li>
+          <li class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line short"></div></div></li>
+          <li class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line short"></div></div></li>
+          <li class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line short"></div></div></li>
+          <li class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line short"></div></div></li>
+          <li class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line wide"></div><div class="skeleton-line medium"></div><div class="skeleton-line short"></div></div></li>
+        </ul>
         <ul id="product-list"></ul>
       </div>
     </main>
 
     <footer>
-      <div class="footer-content">
-        <img src="public/images/LOGO 2.png" alt="ULTRA MRF" class="footer-logo" />
-        <p>&copy; 2024 ULTRA MRF. All Rights Reserved.</p>
-        <div class="footer-links">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="public/images/LOGO 2.png" alt="ULTRA MRF" class="footer-logo" />
+          <p class="footer-tagline">Premium Tires, Mags & Services in Pampanga</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
           <a href="index.html">Home</a>
           <a href="products.html">Products</a>
           <a href="contacts.html">Contact</a>
         </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com/UltraMRFtires" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footerYear"></span> ULTRA MRF. All Rights Reserved.</p>
       </div>
     </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
 
     <script>
       document.getElementById('hamburgerBtn').addEventListener('click', function() {
         document.getElementById('navMenu').classList.toggle('open');
         this.classList.toggle('active');
+      });
+      document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+      // Scroll animations
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            scrollObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.page-header h1, .page-header p').forEach(el => {
+        el.classList.add('animate-on-scroll');
+        scrollObserver.observe(el);
+      });
+
+      // Back to top
+      const backBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        backBtn.classList.toggle('visible', window.pageYOffset > 400);
+      });
+      backBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     </script>
 
@@ -79,32 +130,40 @@
 
       async function fetchData() {
         const productList = document.getElementById("product-list");
+        const skeleton = document.getElementById("skeleton-list");
         productList.innerHTML = "";
 
         try {
           const querySnapshot = await getDocs(collection(db, "products"));
+          skeleton.style.display = "none";
+          productList.style.display = "grid";
           querySnapshot.forEach((doc) => {
             const data = doc.data();
-
             const li = document.createElement("li");
-
+            li.classList.add('animate-on-scroll');
             li.innerHTML = `
               <span class="product-name">${data.product_name}</span><br/><br/>
-              <img src="public/images/${data.product_name.toLowerCase()}.jpg">
+              <div class="img-wrapper">
+                <img src="public/images/${data.product_name.toLowerCase()}.jpg" onerror="this.src='public/images/LOGO 2.png'; this.style.objectFit='contain'; this.style.padding='30px'; this.style.background='#2a2a2a';">
+                <div class="img-overlay">
+                  <span>View Details</span>
+                </div>
+              </div>
               <div class="product">
-              <p>${data.product_name}" <p/>
-              <p>${data.category} <br />₱${data.price}</p> <p>${
-              data.branch
-            }</p> 
-            </div>
+                <p>${data.product_name}</p>
+                <p class="product-price">₱${data.price}</p>
+                <p>${data.category}</p>
+                <p>${data.branch}</p>
+              </div>
             `;
-
             productList.appendChild(li);
+            scrollObserver.observe(li);
           });
         } catch (error) {
           console.error("Error fetching data: ", error);
-          productList.innerHTML =
-            "<p>Error loading products. Please try again later.</p>";
+          skeleton.style.display = "none";
+          productList.style.display = "grid";
+          productList.innerHTML = '<li class="error-msg"><p>Error loading products. Please try again later.</p></li>';
         }
       }
 
