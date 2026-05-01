@@ -22,41 +22,50 @@
       </button>
       <ul id="navMenu">
         <li><a href="index.html" class="active">HOME</a></li>
-        <li><a href="products.html">PRODUCTS</a></li>
+        <li><a href="catalog.html">CATALOG</a></li>
         <li><a href="contacts.html">CONTACT</a></li>
       </ul>
     </nav>
 
     <header class="hero">
-      <img
-        src="public/images/mrf2.jpg"
-        alt="Ultra MRF Background"
-        class="hero-bg"
-      />
+      <img src="public/images/mrf2.jpg" alt="Ultra MRF Background" class="hero-bg" />
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <img src="public/images/LOGO 2.png" alt="ULTRA MRF Logo" class="hero-logo" />
-        <p class="hero-tagline">Premium Tires & Mags in Pampanga</p>
+        <p class="hero-tagline">Premium Tires &amp; Mags in Pampanga</p>
+        <div class="hero-cta">
+          <a href="catalog.html" class="btn-primary">Browse Catalog</a>
+          <a href="contacts.html" class="btn-secondary">Contact Us</a>
+        </div>
       </div>
     </header>
 
-    <main class="container">
-      <section class="search-section">
-        <div class="search-bar">
-          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="searchInput" placeholder="Search tires, mags, brands..." />
-          <button id="searchBtn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
-        </div>
-      </section>
-
-      <section class="product-section">
-        <h2>Product Results</h2>
-        <div id="productResults">
-          <div class="empty-state">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p>Search for a product above to see results</p>
+    <main>
+      <section class="features-section">
+        <div class="features-inner">
+          <h2 class="section-title">Why Choose Us</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 10h16M4 14h10M4 18h6"/><rect x="14" y="12" width="8" height="8" rx="1"/></svg>
+              </div>
+              <h3>Wide Selection</h3>
+              <p>Hundreds of tires and mags from top brands to fit any vehicle and budget.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <h3>Trusted Brands</h3>
+              <p>We carry only premium, industry-trusted brands you can rely on for safety and performance.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <h3>Expert Service</h3>
+              <p>Our experienced team provides professional fitting and advice tailored to your needs.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -66,12 +75,12 @@
       <div class="footer-top">
         <div class="footer-brand">
           <img src="public/images/LOGO 2.png" alt="ULTRA MRF" class="footer-logo" />
-          <p class="footer-tagline">Premium Tires, Mags & Services in Pampanga</p>
+          <p class="footer-tagline">Premium Tires, Mags &amp; Services in Pampanga</p>
         </div>
         <div class="footer-nav">
           <h4>Quick Links</h4>
           <a href="index.html">Home</a>
-          <a href="products.html">Products</a>
+          <a href="catalog.html">Catalog</a>
           <a href="contacts.html">Contact</a>
         </div>
         <div class="footer-social">
@@ -99,14 +108,12 @@
       });
       document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-      // Hero parallax
       const heroBg = document.querySelector('.hero-bg');
       window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        if (heroBg) heroBg.style.transform = 'translateY(' + scrolled * 0.35 + 'px) scale(1.1)';
+        if (heroBg) heroBg.style.transform = 'translateY(' + scrolled * 0.35 + 'px) scale(1.0)';
       });
 
-      // Scroll animations
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -116,106 +123,18 @@
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-      document.querySelectorAll('.product-item, .search-section, .product-section h2').forEach(el => {
+      document.querySelectorAll('.feature-card').forEach((el, i) => {
         el.classList.add('animate-on-scroll');
+        el.style.transitionDelay = (i * 0.12) + 's';
         observer.observe(el);
       });
 
-      // Observe dynamically added product items
-      const resultsDiv = document.getElementById('productResults');
-      const mutationObs = new MutationObserver(() => {
-        resultsDiv.querySelectorAll('.product-item:not(.animate-on-scroll)').forEach(el => {
-          el.classList.add('animate-on-scroll');
-          observer.observe(el);
-        });
-      });
-      mutationObs.observe(resultsDiv, { childList: true });
-
-      // Back to top
       const backBtn = document.getElementById('backToTop');
       window.addEventListener('scroll', function() {
         backBtn.classList.toggle('visible', window.pageYOffset > 400);
       });
       backBtn.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    </script>
-
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-      import {
-        getFirestore,
-        collection,
-        getDocs,
-      } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyBWZsKvQyPhae_X3DJxwwqtZcmvKwQys_U",
-        authDomain: "ultramrfdatabase2024.firebaseapp.com",
-        projectId: "ultramrfdatabase2024",
-        storageBucket: "ultramrfdatabase2024.appspot.com",
-        messagingSenderId: "176584988594",
-        appId: "1:176584988594:web:68ceb4db9026c9c2c5f6ab",
-        measurementId: "G-W50RSDJ3Q2",
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-
-      async function searchProductsByName(productName) {
-        const productResultsDiv = document.getElementById("productResults");
-        productResultsDiv.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Searching products...</p></div>';
-
-        try {
-          const productCollection = collection(db, "centralized_database");
-          const productSnapshot = await getDocs(productCollection);
-          const productList = productSnapshot.docs.map((doc) => doc.data());
-
-          const filteredProducts = productList.filter((product) =>
-            product.product_name.toLowerCase().includes(productName.toLowerCase())
-          );
-
-          productResultsDiv.innerHTML = "";
-
-          if (filteredProducts.length > 0) {
-            filteredProducts.forEach((product) => {
-              productResultsDiv.innerHTML += `
-                <div class="product-item">
-                  <h2 class="biggest"><strong>${product.product_name}</strong></h2>
-                  <h3 class="bigger"><strong>₱${product.price}</strong></h3>
-                  <p class="capitalized"><strong>${product.category}</strong></p>
-                  <p><strong>${product.branch}</strong></p>
-                  <p>Quantity: <strong>${product.quantity}</strong></p>
-                </div>
-              `;
-            });
-          } else {
-            productResultsDiv.innerHTML = `
-              <div class="no-results">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                <p>No products found for "<strong>${productName}</strong>"</p>
-                <span>Try a different search term or check your spelling</span>
-              </div>`;
-          }
-        } catch (error) {
-          console.error("Error searching products: ", error);
-          productResultsDiv.innerHTML = `
-            <div class="no-results">
-              <p>Something went wrong. Please try again.</p>
-            </div>`;
-        }
-      }
-
-      function handleSearch() {
-        const searchInput = document.getElementById("searchInput").value.trim();
-        if (searchInput) {
-          searchProductsByName(searchInput);
-        }
-      }
-
-      document.getElementById("searchBtn").addEventListener("click", handleSearch);
-      document.getElementById("searchInput").addEventListener("keydown", (e) => {
-        if (e.key === "Enter") handleSearch();
       });
     </script>
   </body>
