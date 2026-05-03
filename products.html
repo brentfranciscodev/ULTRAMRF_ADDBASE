@@ -82,6 +82,13 @@
       });
       document.getElementById('footerYear').textContent = new Date().getFullYear();
 
+      const navEl = document.querySelector('nav');
+      function updateNav() {
+        navEl.classList.toggle('scrolled', window.pageYOffset > 10);
+      }
+      window.addEventListener('scroll', updateNav);
+      updateNav();
+
       // Scroll animations
       const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

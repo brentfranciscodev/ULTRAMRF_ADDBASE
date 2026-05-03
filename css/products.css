@@ -21,7 +21,7 @@ body {
 
 /* ===== NAVIGATION ===== */
 nav {
-  background-color: #111111;
+  background-color: transparent;
   padding: 0 50px;
   display: flex;
   justify-content: space-between;
@@ -32,6 +32,12 @@ nav {
   right: 0;
   z-index: 1000;
   height: 72px;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+nav.scrolled {
+  background-color: #111111;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
