@@ -165,9 +165,9 @@ nav ul li a.active {
 
 /* ===== PAGE HEADER ===== */
 .page-header {
-  margin-top: 72px;
+  margin-top: 0;
   background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
-  padding: 60px 20px 50px;
+  padding: 130px 20px 50px;
   text-align: center;
 }
 
@@ -428,7 +428,7 @@ footer {
   }
 
   .page-header {
-    padding: 40px 20px 35px;
+    padding: 110px 20px 35px;
   }
 
   .page-header h1 {
