@@ -202,7 +202,7 @@
             <textarea id="formMessage" name="message" rows="5" placeholder="Write your message here..." required></textarea>
           </div>
           <button type="submit" class="submit-btn">Send Message</button>
-          <div class="success-message" id="successMessage">
+          <div class="success-message" id="successMessage" role="status" aria-live="polite">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             Thank you! We'll get back to you shortly.
           </div>
@@ -282,7 +282,7 @@
         const successMsg = document.getElementById('successMessage');
         successMsg.classList.add('visible');
         this.reset();
-        setTimeout(() => successMsg.classList.remove('visible'), 6000);
+        setTimeout(() => successMsg.classList.remove('visible'), 10000);
       });
     </script>
   </body>

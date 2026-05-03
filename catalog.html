@@ -43,7 +43,7 @@
         </div>
       </section>
 
-      <section class="search-results-section">
+      <section class="search-results-section" id="searchResultsSection">
         <h2 class="section-heading">Search Results</h2>
         <div id="productResults">
           <div class="empty-state">
@@ -169,6 +169,7 @@
 
       /* ---- SEARCH ---- */
       async function searchProductsByName(productName) {
+        document.getElementById('searchResultsSection').style.display = 'block';
         const productResultsDiv = document.getElementById("productResults");
         productResultsDiv.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Searching products...</p></div>';
 

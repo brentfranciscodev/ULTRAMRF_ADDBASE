@@ -85,6 +85,12 @@ nav ul li a.active {
   background-color: #E31837;
 }
 
+nav ul li a:focus-visible {
+  outline: 2px solid #E31837;
+  outline-offset: 2px;
+  color: #ffffff;
+}
+
 /* Hamburger Menu */
 .hamburger {
   display: none;
@@ -538,7 +544,7 @@ footer {
 
 .footer-tagline {
   font-size: 13px;
-  color: #666;
+  color: #999;
   line-height: 1.5;
 }
 
@@ -559,7 +565,7 @@ footer {
 }
 
 .footer-nav a {
-  color: #777;
+  color: #aaa;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
@@ -608,7 +614,7 @@ footer {
 
 .footer-bottom p {
   font-size: 12px;
-  color: #555;
+  color: #888;
   letter-spacing: 0.5px;
 }
 
@@ -659,6 +665,12 @@ footer {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero-tagline {
+    font-size: 17px;
+  }
+}
+
 @media (max-width: 768px) {
   nav {
     padding: 0 20px;
@@ -699,7 +711,7 @@ footer {
   }
 
   .hero-tagline {
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 2px;
     margin-bottom: 32px;
   }
@@ -745,14 +757,27 @@ footer {
 
   .about-image-wrap {
     order: -1;
+    padding-bottom: 0;
+    padding-right: 0;
   }
 
   .about-img {
     height: 320px;
   }
 
-  .year-num {
-    font-size: 48px;
+  .about-year {
+    display: none;
+  }
+
+  .about-badge {
+    bottom: 12px;
+    right: 12px;
+    width: 62px;
+    height: 62px;
+  }
+
+  .badge-num {
+    font-size: 20px;
   }
 
   .footer-top {
@@ -786,7 +811,7 @@ footer {
   }
 
   .hero-tagline {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 1.5px;
   }
 

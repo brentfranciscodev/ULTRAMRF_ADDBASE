@@ -83,6 +83,17 @@ nav ul li a.active {
   background-color: #E31837;
 }
 
+nav ul li a:focus-visible {
+  outline: 2px solid #E31837;
+  outline-offset: 2px;
+  color: #ffffff;
+}
+
+.submit-btn:focus-visible {
+  outline: 2px solid #E31837;
+  outline-offset: 3px;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -123,7 +134,12 @@ nav ul li a.active {
   background-image: url('../public/images/mrf2.jpg');
   background-size: cover;
   background-position: center;
-  padding: 130px 20px 70px;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 20px 60px;
   text-align: center;
   overflow: hidden;
 }
@@ -345,7 +361,7 @@ nav ul li a.active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 38px;
+  padding: 15px 38px;
   background-color: #E31837;
   color: #ffffff;
   border: none;
@@ -421,7 +437,7 @@ footer {
 
 .footer-tagline {
   font-size: 13px;
-  color: #666;
+  color: #999;
   line-height: 1.5;
 }
 
@@ -442,7 +458,7 @@ footer {
 }
 
 .footer-nav a {
-  color: #777;
+  color: #aaa;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
@@ -491,7 +507,7 @@ footer {
 
 .footer-bottom p {
   font-size: 12px;
-  color: #555;
+  color: #888;
   letter-spacing: 0.5px;
 }
 
