@@ -69,6 +69,63 @@
           </div>
         </div>
       </section>
+      <section class="about-section">
+        <div class="about-inner">
+          <div class="about-text">
+            <div class="about-label">
+              <span class="about-dot"></span>
+              WHO WE ARE
+            </div>
+            <h2 class="about-heading">THE LEADING AUTO SHOP IN <em>PAMPANGA</em></h2>
+            <p class="about-desc">
+              ULTRA MRF is a premier provider of tires, mags, and comprehensive auto services
+              with multiple branches across Pampanga, Philippines. Headquartered in Dau, Mabalacat City,
+              we've built our reputation on quality products, expert service, and unwavering commitment
+              to customer satisfaction.
+            </p>
+            <div class="about-features">
+              <div class="about-feature">
+                <div class="about-feature-icon icon-red">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="about-feature-text">
+                  <h4>TRUSTED QUALITY</h4>
+                  <p>Premium products sourced from top global tire and wheel brands</p>
+                </div>
+              </div>
+              <div class="about-feature">
+                <div class="about-feature-icon icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="about-feature-text">
+                  <h4>EXPERT TECHNICIANS</h4>
+                  <p>Skilled professionals with years of hands-on automotive experience</p>
+                </div>
+              </div>
+              <div class="about-feature">
+                <div class="about-feature-icon icon-blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="about-feature-text">
+                  <h4>ADVANCED EQUIPMENT</h4>
+                  <p>State-of-the-art tools and machinery for precise, reliable results</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image-wrap">
+            <img src="public/images/visual1.jpg" alt="ULTRA MRF Auto Shop" class="about-img" />
+            <div class="about-year">
+              <span class="year-num">2007</span>
+              <span class="year-sub">ESTABLISHED</span>
+            </div>
+            <div class="about-badge">
+              <span class="badge-num">17+</span>
+              <span class="badge-sub">YEARS</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -133,6 +190,17 @@
       document.querySelectorAll('.feature-card').forEach((el, i) => {
         el.classList.add('animate-on-scroll');
         el.style.transitionDelay = (i * 0.12) + 's';
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('.about-text, .about-image-wrap').forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('.about-feature').forEach((el, i) => {
+        el.classList.add('animate-on-scroll');
+        el.style.transitionDelay = (i * 0.1) + 's';
         observer.observe(el);
       });
 
