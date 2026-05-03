@@ -149,7 +149,6 @@ nav ul li a.active {
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
   margin-bottom: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
 }
 
 .branch-card:hover {
@@ -158,9 +157,8 @@ nav ul li a.active {
 }
 
 .branch-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  display: inline-block;
+  margin: 20px 0 0 30px;
   background-color: #E31837;
   color: #fff;
   padding: 6px 16px;
@@ -169,19 +167,10 @@ nav ul li a.active {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  z-index: 5;
 }
 
 .branch-inner {
-  display: flex;
-  align-items: stretch;
-}
-
-.branchimg {
-  width: 300px;
-  min-height: 250px;
-  object-fit: cover;
-  flex-shrink: 0;
+  display: block;
 }
 
 .branch-info {
@@ -563,21 +552,6 @@ footer {
 
   .page-header h1 {
     font-size: 28px;
-  }
-
-  .branch-inner {
-    flex-direction: column;
-  }
-
-  .branchimg {
-    width: 100%;
-    min-height: 200px;
-    max-height: 250px;
-  }
-
-  .branch-badge {
-    top: 15px;
-    left: 15px;
   }
 
   .branch-info {
