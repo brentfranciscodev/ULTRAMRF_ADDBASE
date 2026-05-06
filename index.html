@@ -167,7 +167,11 @@
             </div>
           </div>
           <div class="about-image-wrap">
-            <img src="public/images/visual1.jpg" alt="ULTRA MRF Auto Shop" class="about-img" loading="lazy" />
+            <div class="about-slideshow">
+              <img src="public/images/visual1.jpg" alt="ULTRA MRF Auto Shop" class="about-img active" />
+              <img src="public/images/visual2.jpg" alt="ULTRA MRF Auto Shop" class="about-img" loading="lazy" />
+              <img src="public/images/visual3.jpg" alt="ULTRA MRF Auto Shop" class="about-img" loading="lazy" />
+            </div>
             <div class="about-year">
               <span class="year-num">2007</span>
               <span class="year-sub">ESTABLISHED</span>
@@ -273,6 +277,16 @@
         el.style.transitionDelay = (i * 0.1) + 's';
         observer.observe(el);
       });
+
+      if (!prefersReducedMotion) {
+        const slides = document.querySelectorAll('.about-slideshow .about-img');
+        let current = 0;
+        setInterval(() => {
+          slides[current].classList.remove('active');
+          current = (current + 1) % slides.length;
+          slides[current].classList.add('active');
+        }, 2000);
+      }
 
       const backBtn = document.getElementById('backToTop');
       window.addEventListener('scroll', function() {

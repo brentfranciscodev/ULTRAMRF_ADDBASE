@@ -571,12 +571,28 @@ nav ul li a:focus-visible {
   padding-right: 24px;
 }
 
-.about-img {
+.about-slideshow {
+  position: relative;
   width: 100%;
   height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.about-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 16px;
   display: block;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.about-img.active {
+  opacity: 1;
 }
 
 .about-year {
@@ -970,7 +986,7 @@ footer {
     padding-right: 0;
   }
 
-  .about-img {
+  .about-slideshow {
     height: 320px;
   }
 
@@ -1036,7 +1052,7 @@ footer {
     font-size: 22px;
   }
 
-  .about-img {
+  .about-slideshow {
     height: 260px;
   }
 }
