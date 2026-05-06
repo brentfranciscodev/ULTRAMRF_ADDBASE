@@ -134,12 +134,12 @@ nav ul li a:focus-visible {
   background-image: url('../public/images/mrf2.jpg');
   background-size: cover;
   background-position: center;
-  min-height: 50vh;
+  min-height: 35vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 90px 20px 60px;
+  padding: 90px 20px 50px;
   text-align: center;
   overflow: hidden;
 }
@@ -179,18 +179,26 @@ nav ul li a:focus-visible {
 
 /* ===== BRANCH CARDS ===== */
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 30px 20px;
   flex-grow: 1;
 }
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
 
 .branch-card {
   background-color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  margin-bottom: 30px;
+  margin-bottom: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -199,17 +207,33 @@ nav ul li a:focus-visible {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
+.branch-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.branch-header h2 {
+  margin-bottom: 0;
+}
+
 .branch-badge {
-  display: inline-block;
-  margin: 20px 0 0 30px;
+  display: inline-flex;
+  align-items: center;
   background-color: #E31837;
   color: #fff;
-  padding: 6px 16px;
+  padding: 5px 14px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  top: -5px;
 }
 
 .branch-inner {
@@ -217,7 +241,7 @@ nav ul li a:focus-visible {
 }
 
 .branch-info {
-  padding: 30px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -230,13 +254,14 @@ nav ul li a:focus-visible {
   margin-bottom: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  line-height: 1;
 }
 
 .branch-desc {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.6;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .branch-details {
@@ -254,10 +279,13 @@ nav ul li a:focus-visible {
 }
 
 .detail-icon {
-  font-size: 16px;
   flex-shrink: 0;
   width: 20px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E31837;
+  padding-top: 1px;
 }
 
 /* ===== CONTACT FORM SECTION ===== */
@@ -523,6 +551,30 @@ footer {
   transform: translateY(0);
 }
 
+/* ===== MESSENGER FLOAT ===== */
+.messenger-float {
+  position: fixed;
+  bottom: 88px;
+  right: 30px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00B2FF 0%, #006AFF 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 106, 255, 0.4);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 998;
+}
+
+.messenger-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 106, 255, 0.5);
+}
+
 /* ===== BACK TO TOP ===== */
 .back-to-top {
   position: fixed;
@@ -555,6 +607,24 @@ footer {
 .back-to-top:hover {
   background-color: #c41230;
   transform: translateY(-3px);
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .branch-card,
+  .submit-btn,
+  .social-btn,
+  .back-to-top,
+  .messenger-float,
+  .form-group input,
+  .form-group textarea {
+    transition: none;
+  }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -597,8 +667,12 @@ footer {
     font-size: 28px;
   }
 
-  .branch-info {
-    padding: 25px 20px;
+  .branches-grid {
+    grid-template-columns: 1fr;
+  }
+
+.branch-info {
+    padding: 18px;
   }
 
   .branch-info h2 {

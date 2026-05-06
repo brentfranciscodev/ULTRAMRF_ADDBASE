@@ -96,6 +96,10 @@
       </div>
     </footer>
 
+    <a href="https://m.me/UltraMRFtires" target="_blank" rel="noopener noreferrer" class="messenger-float" aria-label="Chat with us on Messenger">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+    </a>
+
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
@@ -238,16 +242,24 @@
             const li = document.createElement("li");
             li.classList.add('animate-on-scroll');
             li.innerHTML = `
-              <span class="product-name">${data.product_name}</span><br/><br/>
-              <div class="img-wrapper">
-                <img src="public/images/${data.product_name.toLowerCase()}.jpg" onerror="this.src='public/images/LOGO 2.png'; this.style.objectFit='contain'; this.style.padding='30px'; this.style.background='#2a2a2a';">
-                <div class="img-overlay"><span>View Details</span></div>
-              </div>
+              <a href="https://m.me/UltraMRFtires" target="_blank" rel="noopener noreferrer" class="img-link">
+                <div class="img-wrapper">
+                  <img src="public/images/${data.product_name.toLowerCase()}.jpg"
+                       loading="lazy"
+                       alt="${data.product_name}"
+                       onerror="this.src='public/images/LOGO 2.png'; this.style.objectFit='contain'; this.style.padding='30px'; this.style.background='#2a2a2a';">
+                  <div class="img-overlay"><span>Inquire Now</span></div>
+                </div>
+              </a>
               <div class="product">
                 <p>${data.product_name}</p>
                 <p class="product-price">&#8369;${data.price}</p>
                 <p>${data.category}</p>
                 <p>${data.branch}</p>
+                <a href="https://m.me/UltraMRFtires" target="_blank" rel="noopener noreferrer" class="inquire-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+                  Inquire on Messenger
+                </a>
               </div>
             `;
             productList.appendChild(li);

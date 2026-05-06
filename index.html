@@ -69,6 +69,59 @@
           </div>
         </div>
       </section>
+      <section class="stats-section">
+        <div class="stats-inner">
+          <div class="stat-item">
+            <span class="stat-num">17<span class="stat-plus">+</span></span>
+            <span class="stat-label">Years in Business</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">4</span>
+            <span class="stat-label">Branch Locations</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">500<span class="stat-plus">+</span></span>
+            <span class="stat-label">Products Available</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100<span class="stat-plus">%</span></span>
+            <span class="stat-label">Authentic Products</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories-section">
+        <div class="categories-inner">
+          <h2 class="section-title">Shop by Category</h2>
+          <div class="categories-grid">
+            <a href="catalog.html" class="category-card">
+              <div class="category-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/></svg>
+              </div>
+              <h3>Tires</h3>
+              <p>All-terrain, performance &amp; budget options from top brands</p>
+              <span class="category-cta">Browse Tires &rarr;</span>
+            </a>
+            <a href="catalog.html" class="category-card">
+              <div class="category-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="2" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/></svg>
+              </div>
+              <h3>Mags</h3>
+              <p>Alloy wheels for every vehicle style &amp; fitment</p>
+              <span class="category-cta">Browse Mags &rarr;</span>
+            </a>
+            <a href="contacts.html" class="category-card">
+              <div class="category-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <h3>Services</h3>
+              <p>Fitting, balancing &amp; wheel alignment at any branch</p>
+              <span class="category-cta">Find a Branch &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="about-section">
         <div class="about-inner">
           <div class="about-text">
@@ -114,7 +167,7 @@
             </div>
           </div>
           <div class="about-image-wrap">
-            <img src="public/images/visual1.jpg" alt="ULTRA MRF Auto Shop" class="about-img" />
+            <img src="public/images/visual1.jpg" alt="ULTRA MRF Auto Shop" class="about-img" loading="lazy" />
             <div class="about-year">
               <span class="year-num">2007</span>
               <span class="year-sub">ESTABLISHED</span>
@@ -154,6 +207,10 @@
       </div>
     </footer>
 
+    <a href="https://m.me/UltraMRFtires" target="_blank" rel="noopener noreferrer" class="messenger-float" aria-label="Chat with us on Messenger">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+    </a>
+
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
@@ -173,9 +230,10 @@
       updateNav();
 
       const heroBg = document.querySelector('.hero-bg');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        if (heroBg) heroBg.style.transform = 'translateY(' + scrolled * 0.35 + 'px) scale(1.0)';
+        if (!prefersReducedMotion && heroBg) heroBg.style.transform = 'translateY(' + scrolled * 0.35 + 'px) scale(1.0)';
       });
 
       const observer = new IntersectionObserver((entries) => {
@@ -188,6 +246,18 @@
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
       document.querySelectorAll('.feature-card').forEach((el, i) => {
+        el.classList.add('animate-on-scroll');
+        el.style.transitionDelay = (i * 0.12) + 's';
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('.stat-item').forEach((el, i) => {
+        el.classList.add('animate-on-scroll');
+        el.style.transitionDelay = (i * 0.1) + 's';
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('.category-card').forEach((el, i) => {
         el.classList.add('animate-on-scroll');
         el.style.transitionDelay = (i * 0.12) + 's';
         observer.observe(el);
