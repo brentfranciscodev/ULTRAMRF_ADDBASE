@@ -192,11 +192,23 @@
             filteredProducts.forEach((product) => {
               productResultsDiv.innerHTML += `
                 <div class="product-item">
-                  <h2 class="biggest"><strong>${product.product_name}</strong></h2>
-                  <h3 class="bigger"><strong>&#8369;${product.price}</strong></h3>
-                  <p class="capitalized"><strong>${product.category}</strong></p>
-                  <p><strong>${product.branch}</strong></p>
-                  <p>Quantity: <strong>${product.quantity}</strong></p>
+                  <div class="pi-header">
+                    <span class="pi-category">${product.category}</span>
+                  </div>
+                  <h2 class="pi-name">${product.product_name}</h2>
+                  <p class="pi-price">&#8369;${Number(product.price).toLocaleString()}</p>
+                  <div class="pi-divider"></div>
+                  <div class="pi-meta">
+                    <div class="pi-branch">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      ${product.branch}
+                    </div>
+                    <span class="pi-qty">${product.quantity} in stock</span>
+                  </div>
+                  <a href="https://m.me/UltraMRFtires" target="_blank" rel="noopener noreferrer" class="pi-cta">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+                    Inquire on Messenger
+                  </a>
                 </div>
               `;
             });
